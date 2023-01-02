@@ -1,0 +1,18 @@
+//console.log("Ready");
+
+function add(n1: number, n2: number) {
+  //console.log(typeof num1);
+  //   //JS Exception Handling ---
+  //   if (typeof n1 !== "number" || typeof n2 !== "number")
+  //     throw new Error("please provide a number");
+  //   //---
+  return n1 + n2;
+}
+
+const num1 = 54;
+const num2 = 4;
+
+const result = add(num1, num2);
+
+console.log(result);
+console.log(5 + "5");

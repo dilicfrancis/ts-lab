@@ -1,0 +1,16 @@
+### Environment
+@url = http://localhost:3000/messages
+
+### List all messages
+GET {{url}}
+
+### Create a new message
+POST {{url}}
+Content-Type: application/json
+
+{
+    "content": "You-hoo!"
+}
+
+### Get a single message
+GET {{url}}/87434

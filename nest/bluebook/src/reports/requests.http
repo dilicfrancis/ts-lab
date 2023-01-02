@@ -1,0 +1,28 @@
+### Environment
+@url = http://localhost:3000/reports
+
+### Post A Report
+POST {{url}}
+Content-Type: application/json
+
+{
+    "price": 40003,
+    "make": "Honda",
+    "model": "Accord",
+    "year":1988,
+    "mileage": 54023,
+    "lng": 0,
+    "lat": 0
+}
+
+### Approve A Report
+PATCH  {{url}}/18
+Content-Type: application/json
+
+{
+    "approved": false
+}
+
+### Get an Estimate
+
+GET {{url}}?make=Honda&model=Accord&year=1988&mileage=54023&lng=0&lat=3

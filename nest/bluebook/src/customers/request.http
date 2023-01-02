@@ -1,0 +1,53 @@
+### Environment
+@url = http://localhost:3000/auth
+
+### List all customers
+GET {{url}}
+
+### Create a new customer
+POST {{url}}/signup
+Content-Type: application/json
+
+{
+    "email": "pookso@hounds.io",
+    "password": "fbbf9302"
+}
+
+### Fetch an existing customer
+POST {{url}}/signin
+Content-Type: application/json
+
+{
+    "email": "pooksy@hounds.io",
+    "password": "fbbf9302"
+}
+
+### Print customer
+GET {{url}}/printcustomer
+
+### Sign Customer Out
+POST  {{url}}/signout
+
+### Get a single customer
+GET {{url}}/1
+
+### Get a customer using their email
+GET {{url}}?email=pooky@hounds.io
+
+### Create a new customer
+PATCH  {{url}}/1
+Content-Type: application/json
+
+{
+    "email": "pookie@hounds.io",
+    "password": "k"
+}
+
+### Deete a customer using their id
+DELETE {{url}}/2
+
+###### Shade Play #####
+# GET {{url}}/shade/gray
+
+# ###
+# GET {{url}}/shade
