@@ -1,0 +1,57 @@
+<div class="container">
+  <h3>Pay Piper</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label>Customer: </label>
+      <input class="form-control" (input)="onName($event)" />
+    </div>
+    <div class="col">
+      <label><b>Full Name</b></label>
+      <div>{{ customerName | titlecase }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Date: </label>
+      <input type="date" class="form-control" (input)="onDate($event)" />
+    </div>
+    <div class="col">
+      <label><b>Date of Transaction</b></label>
+      <div>{{ transactionDate | date : "MMMM d, y" }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Quantity: </label>
+      <input type="number" class="form-control" (input)="onQuantity($event)" />
+    </div>
+    <div class="col">
+      <label><b>Quantity</b></label>
+      <div>{{ quantity | tonnes : "1.1-4" }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Weight: </label>
+      <input type="number" class="form-control" (input)="onWeight($event)" />
+    </div>
+    <div class="col">
+      <label><b>Weight in Ounces</b></label>
+      <div>{{ weight | number : "1.1-4" }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Amount: </label>
+      <input type="number" class="form-control" (input)="onAmount($event)" />
+    </div>
+    <div class="col">
+      <label><b>Amount of Payment</b></label>
+      <div>{{ amount | currency : "NGN" }}</div>
+    </div>
+  </div>
+</div>
