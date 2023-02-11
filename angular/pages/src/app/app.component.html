@@ -1,0 +1,43 @@
+<nav>
+  <ul class="pagination">
+    <li
+      class="page-item"
+      [appCustomClass]="{ disabled: pageNum === 0 }"
+      (click)="pageNum = pageNum - 1"
+    >
+      <a class="page-link">back</a>
+    </li>
+    <ng-container *appRepeat="images.length; let i = iteration">
+      <li
+        class="page-item"
+        [appCustomClass]="{ active: i === pageNum }"
+        *ngIf="delimiter(i)"
+      >
+        <a class="page-link" (click)="pageNum = i">{{ i + 1 }}</a>
+      </li></ng-container
+    >
+    <li
+      class="page-item"
+      [appCustomClass]="{ disabled: pageNum === images.length - 1 }"
+      (click)="pageNum = pageNum + 1"
+    >
+      <a class="page-link">next</a>
+    </li>
+  </ul>
+</nav>
+
+<span [ngSwitch]="pageNum + 1">
+  <p *ngSwitchCase="2">Even</p>
+  <p *ngSwitchCase="4">Even</p>
+  <p *ngSwitchCase="6">Even</p>
+  <p *ngSwitchDefault [appCustomClass]="'silver'">Odd</p>
+</span>
+
+<ul *appRepeat="2">
+  <li>ready!</li>
+</ul>
+
+<div>
+  <h4>{{ images[pageNum].title }}</h4>
+  <img [src]="images[pageNum].url" />
+</div>
