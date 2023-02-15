@@ -1,0 +1,11 @@
+<app-divider>Modal Component</app-divider>
+<button (click)="showModalHandler()">Show Modal</button>
+<app-modal *ngIf="showModal" (closeEvent)="showModalHandler()"
+  ><p title>Modal Window</p>
+  <p>Remarkably Brief</p>
+  <button class="ui button" (click)="showModalHandler()" closeOption>
+    Close Modal
+  </button>
+</app-modal>
+<app-divider>Accordion Component</app-divider>
+<app-accordion [contents]="articles"></app-accordion>

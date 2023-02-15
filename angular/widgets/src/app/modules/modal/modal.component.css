@@ -1,0 +1,11 @@
+.custom-close:empty {
+  display: none;
+}
+
+.default-close {
+  display: none;
+}
+
+.custom-close:empty + .default-close {
+  display: block;
+}
