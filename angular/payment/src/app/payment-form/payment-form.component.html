@@ -1,0 +1,53 @@
+<div class="columns">
+  <div class="column">
+    <app-card-image
+      [name]="paymentForm.value.customerName"
+      [cardNumber]="paymentForm.value.cardNumber"
+      [expiration]="paymentForm.value.expiration"
+    ></app-card-image>
+  </div>
+  <div class="column">
+    <form [formGroup]="paymentForm" (ngSubmit)="submitHandler()">
+      <app-input-field [inputControl]="paymentForm.controls.customerName"
+        >Full Name</app-input-field
+      >
+      <app-input-field [inputControl]="paymentForm.controls.cardNumber"
+        >Card Number</app-input-field
+      >
+      <div class="columns">
+        <div class="column">
+          <app-input-field [inputControl]="paymentForm.controls.expiration"
+            >Expiration (MM/YY)</app-input-field
+          >
+        </div>
+        <div class="column">
+          <app-input-field [inputControl]="paymentForm.controls.securityCode"
+            >Security Code</app-input-field
+          >
+        </div>
+      </div>
+      <div class="buttons">
+        <button
+          class="button is-primary"
+          type="submit"
+          [disabled]="paymentForm.invalid"
+        >
+          Submit</button
+        ><button
+          class="button is-warning"
+          type="reset"
+          (click)="resetHandler()"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div>Form Contents: {{ paymentForm.value | json }}</div>
+<div>Form is valid: {{ paymentForm.valid }}</div>
+<div>
+  Errors on key customerName:
+  {{ paymentForm.controls.customerName.errors | json }}
+</div> -->

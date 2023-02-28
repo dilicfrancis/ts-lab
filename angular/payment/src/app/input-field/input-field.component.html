@@ -1,0 +1,31 @@
+<div class="field">
+  <label class="label"><ng-content></ng-content></label>
+  <div class="control">
+    <input
+      class="input"
+      [ngClass]="{
+        'is-danger':
+          inputControl.errors && inputControl.touched && inputControl.dirty
+      }"
+      [formControl]="inputControl"
+    />
+  </div>
+  <ng-container
+    *ngIf="inputControl.errors && inputControl.touched && inputControl.dirty"
+    ><div class="help is-danger" *ngIf="inputControl.errors['required']">
+      This field is required
+    </div>
+    <div class="help is-danger" *ngIf="inputControl.errors['minlength']">
+      This field requires more than
+      {{ inputControl.errors["minlength"].requiredLength }} letters (currently
+      {{ inputControl.errors["minlength"].actualLength }})
+    </div>
+    <div class="help is-danger" *ngIf="inputControl.errors['maxlength']">
+      This field require less than
+      {{ inputControl.errors["maxlength"].requiredLength }}
+    </div>
+    <div class="help is-danger" *ngIf="inputControl.errors['pattern']">
+      This field contain an invalid input.
+    </div>
+  </ng-container>
+</div>
