@@ -1,0 +1,10 @@
+<form [formGroup]="equation">
+  <div class="equation">{{ x }} + {{ y }} =</div>
+  <input appCueHighlight formControlName="response" />
+</form>
+
+<div class="stats">{{ solveRate | number : "1.1-3" }} second(s)</div>
+
+<!-- <div>Content: {{ equation.value | json }}</div>
+<div>Valid: {{ equation.valid }}</div>
+<div>Error: {{ equation.errors | json }}</div> -->
