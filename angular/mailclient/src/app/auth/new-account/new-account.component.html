@@ -1,0 +1,33 @@
+<h2>SignUp Here:</h2>
+<form class="ui form" [formGroup]="authFm" (ngSubmit)="SubmitSignUpHandler()">
+  <div class="field">
+    <!-- <label>Username</label>
+    <input formControlName="username" /> -->
+    <app-custom-input  format="text" label="Username" [inputField]="authFm.controls.username" />
+  </div>
+  <!-- {{ authFm.controls.username.errors | json }} -->
+  <div class="field">
+    <!-- <label>Password</label>
+    <input formControlName="password" /> -->
+    <app-custom-input format ="password" label="Password" [inputField]="authFm.controls.password" />
+  </div>
+  <!-- {{ authFm.controls.password.errors | json }} -->
+
+  <div class="field">
+    <!-- <label>Confirm Password</label>
+    <input formControlName="passwordConfirm" /> -->
+    <app-custom-input format="password" label="Confirm Password" [inputField]="authFm.controls.passwordConfirm" />
+  </div>
+  <!-- {{ authFm.controls.passwordConfirm.errors | json }} -->
+
+  <div class="ui red basic label" *ngIf="authFm.errors && authFm.controls.password.touched && authFm.controls.passwordConfirm.touched">
+    <p *ngIf="authFm.errors['MismatchedPassword']">Password and Password Confirmation Must Match</p>
+    <p *ngIf="authFm.errors['connectionError']">Cannot sign up. No internet connection. </p>
+    <p *ngIf="authFm.errors['otherError']">Could not sign up. </p>
+  </div>
+<div>
+  <button class="ui submit button primary">Submit</button></div>
+
+  
+</form>
+<!-- {{ authFm.errors | json }} -->

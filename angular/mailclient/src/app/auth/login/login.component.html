@@ -1,0 +1,11 @@
+<h3>Sign In</h3>
+<form class="ui form" [formGroup]="signInForm" (ngSubmit)="signInHandler()">
+    <app-custom-input format="text" label="Username" [inputField]="signInForm.controls.username" />
+    <app-custom-input format ="password" label="Password" [inputField]="signInForm.controls.password" />
+    <div class="ui red basic label" *ngIf="signInForm.errors && signInForm.controls.username.touched && signInForm.controls.password.touched">
+        <p *ngIf="signInForm.errors['credentials']">Invalid username or password</p>
+        <p *ngIf="signInForm.errors['connectionError']">Cannot sign up. No internet connection. </p>
+        <p *ngIf="signInForm.errors['otherError']">Could not sign up. </p>
+    </div>
+      <div><button class="ui submit button primary">Sign in</button></div>
+</form>

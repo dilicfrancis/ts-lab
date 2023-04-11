@@ -1,0 +1,8 @@
+<button (click)="openModal = true" class="ui button inverted primary fluid">
+  Compose
+</button>
+
+<app-modal (close)="openModal = false" *ngIf="openModal">
+  <div title>Compose</div>
+  <app-form [message]="message" (submitMessage)="submit($event)"></app-form>
+</app-modal>

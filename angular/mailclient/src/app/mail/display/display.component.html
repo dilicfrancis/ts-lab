@@ -1,0 +1,15 @@
+<div class="header">
+  <div>
+    <h3>{{ message.subject }}</h3>
+    <div>
+      From: <i>{{ message.from }}</i>
+    </div>
+    <div>
+      To: <i>{{ message.to }}</i>
+    </div>
+  </div>
+  <div><app-reply [message]="message"></app-reply></div>
+</div>
+<div class="ui divider">
+  <div [innerHTML]="message.html"></div>
+</div>

@@ -1,0 +1,38 @@
+<div class="field">
+  <label>{{ label }}</label>
+  <input
+    *ngIf="inputType === 'input'"
+    [type]="format"
+    [formControl]="inputField"
+  />
+
+  <textarea
+    *ngIf="inputType === 'textarea'"
+    [formControl]="inputField"
+  ></textarea>
+  <ng-container
+    *ngIf="inputField.errors && inputField.touched && inputField.dirty"
+    ><div class="ui pointing red basic label">
+      <div *ngIf="inputField.errors['required']">This field is required</div>
+      <div *ngIf="inputField.errors['email']">Provide a valid email</div>
+      <div *ngIf="inputField.errors['minlength']">
+        This field requires more than
+        {{ inputField.errors["minlength"].requiredLength }} letters (currently
+        {{ inputField.errors["minlength"].actualLength }})
+      </div>
+      <div *ngIf="inputField.errors['maxlength']">
+        This field require less than
+        {{ inputField.errors["maxlength"].requiredLength }}
+      </div>
+      <div *ngIf="inputField.errors['pattern']">
+        This field contain an invalid letter.
+      </div>
+      <div *ngIf="inputField.errors['unavailableUsername']">
+        This username is already taken.
+      </div>
+      <div *ngIf="inputField.errors['error']">
+        Cannot verify the username provided. Check your internet connection.
+      </div>
+    </div>
+  </ng-container>
+</div>

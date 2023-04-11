@@ -1,0 +1,6 @@
+<button (click)="openModal = true" class="ui button primary">Reply</button>
+
+<app-modal (close)="openModal = false" *ngIf="openModal">
+  <div title>Reply</div>
+  <app-form [message]="message" (submitMessage)="submit($event)"></app-form>
+</app-modal>

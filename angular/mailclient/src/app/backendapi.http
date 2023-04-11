@@ -1,0 +1,54 @@
+### Environment
+@url = https://api.angular-email.com
+
+### Is the user signed in?
+GET {{url}}/auth/signedin
+
+### sign up a new account
+POST {{url}}/auth/signup
+Content-Type: application/json
+
+{
+    "username": "pookie11hound",
+    "password": "fbbf9302",
+    "passwordConfirmation": "fbbf9302"
+}
+
+### sign in with a username
+POST {{url}}/auth/signin
+Content-Type: application/json
+
+{
+    "username": "pookie11hounds",
+    "password": "fbbf9302"
+}
+
+### check if a username is already in use
+POST {{url}}/auth/username
+Content-Type: application/json
+
+{
+    "username": "pookie11hounds"
+}
+
+### Sign Out
+POST  {{url}}/auth/signout
+
+### Email Services ###
+
+### Retrieve messages 
+GET {{url}}/emails
+
+### Retrive a message by id
+GET {{url}}/emails/:id
+
+### Post a meesage
+POST {{url}}/emails
+Content-Type: application/json
+
+{
+    "subject": "Pookie's Trip",
+    "text": "This message is all about my friend, Pookie",
+    "to": "lita@hooksxa.io",
+    "from": "pookyhounds@mail.com"
+}

@@ -1,0 +1,11 @@
+<div class="ui celled list">
+  <div class="item" *ngFor="let message of messages">
+    <a [routerLink]="message.id" routerLinkActive="active">
+      <!-- routerLink path building is relative to current path, rather than an absolute build -->
+      <div class="content">
+        <div class="header trim">{{ message.subject }}</div>
+        <p class="trim">{{ message.from }}</p>
+      </div>
+    </a>
+  </div>
+</div>
